@@ -1,0 +1,172 @@
+.game-board {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 800px;
+    height: 100vh;
+    padding: 10px;
+    box-sizing: border-box;
+    position: relative;
+    user-select: none;
+    touch-action: none;
+    /* Important for custom generic drag */
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.game-header button {
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    color: var(--color-text);
+    opacity: 0.6;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+}
+
+.game-header button:hover {
+    opacity: 1;
+    border-color: var(--color-accent);
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.stats {
+    display: flex;
+    gap: 16px;
+    font-weight: bold;
+    color: var(--color-text);
+    align-items: center;
+}
+
+.top-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    /* Ensure z-index to stay above tableau if needed */
+}
+
+.foundations {
+    display: flex;
+    gap: var(--gap);
+}
+
+.tableau-grid {
+    display: flex;
+    justify-content: space-between;
+    /* Spread columns */
+    height: 100%;
+    /* Fill remaining */
+    position: relative;
+    gap: 4px;
+    /* minimal gap as justifyContent handles spread */
+}
+
+.drag-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    /* We don't need width/height, just the transform */
+}
+
+.drag-card {
+    position: absolute;
+    /* relative to drag-layer */
+}
+
+/* Modals */
+.overlay-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+    border-radius: 16px;
+}
+
+.result-modal {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    max-width: 90%;
+    width: 300px;
+}
+
+.result-modal h2 {
+    font-size: 2.5rem;
+    margin: 0 0 10px 0;
+    color: #2c3e50;
+}
+
+.result-modal.won h2 {
+    color: #2ecc71;
+}
+
+.result-modal.lost h2 {
+    color: #e74c3c;
+}
+
+.result-modal p {
+    font-size: 1.1rem;
+    color: #7f8c8d;
+    margin-bottom: 30px;
+}
+
+.modal-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.primary-btn {
+    background-color: var(--color-accent);
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.secondary-btn {
+    background-color: transparent;
+    color: #7f8c8d;
+    border: 2px solid #ecf0f1;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.secondary-btn:hover {
+    border-color: #bdc3c7;
+    color: #2c3e50;
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

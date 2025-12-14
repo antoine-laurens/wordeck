@@ -1,0 +1,36 @@
+.tableau-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    min-height: 200px;
+    /* Drop zone area */
+}
+
+.tableau-card-wrapper {
+    /* Default overlap */
+    margin-top: -90px;
+}
+
+@media (min-width: 768px) {
+    .tableau-card-wrapper {
+        margin-top: -110px;
+    }
+}
+
+.tableau-card-wrapper:first-child {
+    margin-top: 0;
+}
+
+/* If previous card was face down, we might want tighter packing. 
+   But CSS doesn't know previous sibling state easily without :has.
+   React inline styles are safer for logic.
+*/
+
+.empty-slot {
+    width: var(--card-width);
+    height: var(--card-height);
+    border-radius: var(--radius-card);
+    border: 2px dashed rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.05);
+}
