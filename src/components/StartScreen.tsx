@@ -22,7 +22,16 @@ export const StartScreen: React.FC = () => {
             padding: 0,
             margin: 0
         }}>
-            <h1 style={{ fontSize: '4rem', marginBottom: '0', color: '#34495e' }}>WOR[D]ECK</h1>
+            <img
+                src="/wordeck-logo.png"
+                alt="Wordeck Logo"
+                style={{
+                    width: '300px',
+                    height: 'auto',
+                    filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))'
+                }}
+            />
+            <h1 style={{ fontFamily: '"BBH Sans Hegarty", sans-serif', fontSize: '4rem', marginBottom: '0', color: '#34495e' }}>WORDECK</h1>
             <p style={{ fontSize: '1.2rem', color: '#7f8c8d' }}>Stack words by theme</p>
 
             <button
@@ -36,7 +45,8 @@ export const StartScreen: React.FC = () => {
                     borderRadius: '50px',
                     cursor: 'pointer',
                     boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
-                    marginTop: '20px'
+                    marginTop: '20px',
+                    fontWeight: 'bold'
                 }}
             >
                 Play

@@ -19,7 +19,7 @@
     flex-direction: column;
     overflow: hidden;
     box-shadow: var(--shadow-card);
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.05);
     background-color: var(--color-card-bg);
     transition: transform 0.3s;
 }
@@ -41,9 +41,10 @@
 }
 
 .card.rank-1 .card-front {
-    background-color: #f0f8ff;
+    background-color: #ddecfa;
     /* AliceBlue or similar pastel */
-    border: 2px solid #bdc3c7;
+    border: 2px solid #8cc3e8;
+    font-weight: 700;
 }
 
 /* Optimizations for static cards (not flipping) */
@@ -65,7 +66,7 @@
     font-size: 0.75rem;
     opacity: 0.7;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.3px;
 
 }
 
@@ -90,10 +91,14 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 0.9rem;
     word-break: break-word;
     text-transform: uppercase;
+}
+
+.card.rank-1 .card-body {
+    font-weight: 700;
 }
 
 .card-back {
