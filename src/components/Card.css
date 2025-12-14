@@ -47,11 +47,6 @@
     font-weight: 700;
 }
 
-/* Optimizations for static cards (not flipping) */
-.card-face {
-    /* If we don't animate flip often, we can just swap z-index or visibility */
-}
-
 .card-front {
     padding: 8px;
     color: var(--color-text);

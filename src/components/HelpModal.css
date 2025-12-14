@@ -1,0 +1,117 @@
+.help-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.help-modal-content {
+    background: white;
+    border-radius: 16px;
+    padding: 32px;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.help-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+    color: #666;
+}
+
+.help-modal-close:hover {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.help-modal-content h2 {
+    margin: 0 0 24px 0;
+    color: #34495e;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.help-section {
+    margin-bottom: 24px;
+}
+
+.help-section:last-child {
+    margin-bottom: 0;
+}
+
+.help-section h3 {
+    margin: 0 0 12px 0;
+    color: #2c3e50;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.help-section p {
+    margin: 0;
+    color: #555;
+    line-height: 1.6;
+}
+
+.help-section ul {
+    margin: 0;
+    padding-left: 20px;
+    color: #555;
+    line-height: 1.8;
+}
+
+.help-section li {
+    margin-bottom: 8px;
+}
+
+.help-section li:last-child {
+    margin-bottom: 0;
+}
+
+.help-section strong {
+    color: #2c3e50;
+    font-weight: 600;
+}

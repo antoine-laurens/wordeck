@@ -18,9 +18,10 @@ export const StartScreen: React.FC = () => {
             backgroundColor: 'var(--color-bg)', // Ensure background covers
             zIndex: 1000,
             textAlign: 'center',
-            gap: '20px',
+            gap: '0px',
             padding: 0,
-            margin: 0
+            margin: 0,
+
         }}>
             <img
                 src="/wordeck-logo.png"
@@ -31,7 +32,7 @@ export const StartScreen: React.FC = () => {
                     filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))'
                 }}
             />
-            <h1 style={{ fontFamily: '"BBH Sans Hegarty", sans-serif', fontSize: '4rem', marginBottom: '0', color: '#34495e' }}>WORDECK</h1>
+            <h1 style={{ fontSize: '4rem', fontWeight: 900, marginBottom: '0', color: '#34495e' }}>WORDECK</h1>
             <p style={{ fontSize: '1.2rem', color: '#7f8c8d' }}>Stack words by theme</p>
 
             <button
@@ -51,6 +52,6 @@ export const StartScreen: React.FC = () => {
             >
                 Play
             </button>
-        </div>
+        </div >
     );
 };

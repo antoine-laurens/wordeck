@@ -4,7 +4,9 @@ import { Tableau } from './Tableau';
 import { Foundation } from './Foundation';
 import { StockWaste } from './StockWaste';
 import { Card } from './Card';
+import { HelpModal } from './HelpModal';
 import type { Card as CardType } from '../types/game';
+import { HelpCircle } from 'lucide-react';
 import './GameBoard.css';
 
 interface DragState {
@@ -26,6 +28,7 @@ export const GameBoard: React.FC = () => {
     const gameStatus = status;
 
     const [dragState, setDragState] = useState<DragState | null>(null);
+    const [isHelpOpen, setIsHelpOpen] = useState(false);
 
     // Initialize game on mount
     useEffect(() => {
@@ -131,6 +134,9 @@ export const GameBoard: React.FC = () => {
             <div className="game-header">
                 <div className="stats">
                     <button onClick={restartGame}>Restart</button>
+                    <button onClick={() => setIsHelpOpen(true)} className="help-button" title="Aide">
+                        <HelpCircle size={20} />
+                    </button>
                     <span>Moves: {moves}</span>
                 </div>
             </div>
@@ -198,6 +204,9 @@ export const GameBoard: React.FC = () => {
                     </div>
                 </div>
             )}
+
+            {/* Help Modal */}
+            <HelpModal isOpen={isHelpOpen} onClose={() => setIsHelpOpen(false)} />
         </div>
     );
 };
