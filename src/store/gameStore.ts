@@ -146,10 +146,10 @@ export const useGameStore = create<GameStore>((set, get) => ({
                 const targetCard = targetPile.length > 0 ? targetPile[targetPile.length - 1] : null;
                 isValid = canMoveToTableau(primaryCard, targetCard);
             } else if (target.area === 'foundation') {
-                // Can only move one card to foundation at a time
-                if (cardsToMove.length === 1) {
-                    const targetPile = newFoundation[target.index];
-                    isValid = canMoveToFoundation(primaryCard, targetPile);
+                // Allow moving multiple cards to foundation if valid
+                const targetPile = newFoundation[target.index];
+                if (canMoveToFoundation(primaryCard, targetPile)) {
+                    isValid = true;
                 }
             }
 
@@ -182,7 +182,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
             if (target.area === 'tableau') {
                 newTableau[target.index].push(...cardsToMove);
             } else if (target.area === 'foundation') {
-                newFoundation[target.index].push(primaryCard);
+                newFoundation[target.index].push(...cardsToMove);
 
                 // CHECK FOR THEME COMPLETION
                 const pile = newFoundation[target.index];
@@ -191,7 +191,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
                     const targetCount = state.activeThemes[themeName];
                     // pile has (1 theme card) + (targetCount words)
                     // So total length should be targetCount + 1
-                    if (pile.length === targetCount + 1) {
+                    if (pile.length >= targetCount + 1) { // Check >= just in case
                         // Trigger completion sequence (delay handled by UI + finishThemeCompletion)
                         completingIndex = target.index;
                     }
